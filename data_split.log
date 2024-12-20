@@ -1,0 +1,3 @@
+2024-12-20 00:10:57,947 - INFO - Inicio del script de división de datos.
+2024-12-20 00:10:57,991 - ERROR - Error al conectar a la base de datos: connection to server at "localhost" (::1), port 5432 failed: FATAL:  role "usuario" does not exist
+
