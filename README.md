@@ -1,12 +1,22 @@
-# ModeloAR
+# ModeloAR — Python, PostgreSQL y aprendizaje por refuerzo
 
 Proyecto experimental de analítica y aprendizaje por refuerzo aplicado a series temporales financieras.
 
 El repositorio reúne componentes desarrollados en Python para consultar y preparar datos almacenados en PostgreSQL, construir vectores de estado a partir de información OHLCV e indicadores técnicos, entrenar modelos de tipo Actor-Critic y generar señales para su evaluación posterior.
 
-## Objetivo
+> El objetivo de esta publicación es demostrar trabajo con Python, SQL/PostgreSQL, procesamiento de datos, APIs y modelos de aprendizaje automático. No se presenta como un sistema de trading listo para producción ni como una recomendación financiera.
 
-Explorar un flujo reproducible para transformar datos de mercado en representaciones útiles para modelos de aprendizaje automático y aprendizaje por refuerzo, manteniendo separadas las etapas de preparación, entrenamiento, generación de señales y análisis estadístico.
+## Qué demuestra
+
+- Integración de **Python + PostgreSQL/SQL** mediante `psycopg2`.
+- Extracción, transformación y persistencia de datos OHLCV y variables derivadas.
+- Procesamiento con **Pandas y NumPy**.
+- Normalización y preparación con **scikit-learn**.
+- Construcción de vectores de estado para modelado.
+- Experimentación con **PyTorch** y una arquitectura Actor-Critic inspirada en Soft Actor-Critic (SAC).
+- Generación y persistencia de señales para análisis posterior.
+- Capa de servicio con **FastAPI**.
+- Análisis estadístico y visualización de resultados experimentales.
 
 ## Arquitectura general
 
@@ -112,12 +122,20 @@ El flujo previsto es:
 
 Esta separación evita publicar datasets o artefactos generados de gran tamaño y mantiene el repositorio centrado en el código fuente.
 
-## Notas sobre el proyecto
+## Desarrollo asistido por IA
 
-Este repositorio corresponde a una etapa experimental de investigación y desarrollo. Algunos scripts conservan decisiones de implementación propias de esa fase y pueden requerir parametrización adicional para ejecutarse en un entorno distinto al original.
-
-El objetivo de su publicación es mostrar la evolución del trabajo con Python, SQL/PostgreSQL, procesamiento de datos y modelos de aprendizaje automático, no presentar un sistema de trading listo para producción.
+Durante la evolución del proyecto se utilizaron herramientas de IA generativa como apoyo para explorar alternativas técnicas, depurar errores, revisar lógica, documentar componentes y acelerar ciclos de desarrollo. Las propuestas se validaron mediante ejecución, revisión y ajustes iterativos antes de incorporarse al proyecto.
 
 ## Seguridad
 
 Si una credencial ha sido publicada previamente en el historial de Git, debe considerarse comprometida y rotarse en el proveedor correspondiente. Eliminarla del último commit no invalida copias anteriores presentes en el historial.
+
+## Autor
+
+**Manuel Alfonso Rincón Méndez**  
+Tecnólogo en Análisis y Desarrollo de Sistemas de Información · Estudiante de Ingeniería de Sistemas  
+Intereses: Python, SQL/PostgreSQL, Data Engineering, Machine Learning, automatización e IA aplicada.
+
+## Licencia
+
+MIT. Ver `LICENSE`.
