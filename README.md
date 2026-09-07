@@ -57,13 +57,18 @@ Realiza análisis descriptivo de las señales almacenadas y explora relaciones e
 
 Incluye una capa de servicio con FastAPI y lógica de acceso a PostgreSQL para trabajar con los datos de entrada del modelo.
 
+### `settings.py`
+
+Centraliza la carga de configuración sensible. La clave de Polygon no se almacena en archivos públicos: se obtiene en tiempo de ejecución desde la variable de entorno `POLYGON_API_KEY`.
+
 ## Configuración segura
 
 Las credenciales no deben almacenarse en el repositorio.
 
 1. Copia `config4h.example.json` como `config4h.json`.
-2. Completa localmente los datos de PostgreSQL y la API requerida.
-3. No hagas commit de `config4h.json`; está excluido mediante `.gitignore`.
+2. Completa localmente los datos de PostgreSQL.
+3. Define `POLYGON_API_KEY` en tu entorno cuando necesites consumir la API de Polygon.
+4. No hagas commit de `config4h.json` ni de archivos `.env`; están excluidos mediante `.gitignore`.
 
 ```bash
 cp config4h.example.json config4h.json
@@ -73,7 +78,39 @@ En Windows PowerShell:
 
 ```powershell
 Copy-Item config4h.example.json config4h.json
+$env:POLYGON_API_KEY="tu_clave_local"
 ```
+
+En Linux/macOS:
+
+```bash
+export POLYGON_API_KEY="tu_clave_local"
+```
+
+El archivo `.env.example` existe únicamente como referencia de nombres de variables. No contiene credenciales reales.
+
+### Uso desde Python
+
+```python
+from settings import get_polygon_api_key
+
+api_key = get_polygon_api_key()
+```
+
+`settings.py` recupera la clave desde el entorno y la mantiene solo en memoria. Si la variable no está definida, muestra un error explícito en lugar de recurrir a una clave escrita en el código.
+
+## Artefactos de entrenamiento y reproducibilidad
+
+`vectores_estado.npy` es un artefacto generado y por ello no se versiona en Git. Los scripts `sac_training.py` y `sac_model_config.py` esperan que exista localmente antes del entrenamiento.
+
+El flujo previsto es:
+
+1. Configurar localmente `config4h.json` y disponer de las tablas PostgreSQL requeridas por `state_builder.py`.
+2. Ejecutar `state_builder.py` para construir los vectores de estado.
+3. Verificar que se haya generado `vectores_estado.npy` en el directorio de trabajo.
+4. Ejecutar posteriormente los scripts de configuración o entrenamiento SAC.
+
+Esta separación evita publicar datasets o artefactos generados de gran tamaño y mantiene el repositorio centrado en el código fuente.
 
 ## Notas sobre el proyecto
 
