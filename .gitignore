@@ -1,0 +1,27 @@
+# Local configuration / secrets
+config4h.json
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Logs and generated artifacts
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.vs/
+.idea/
+
+# Large/generated ML artifacts (keep intentionally tracked model files if needed)
+*.npy

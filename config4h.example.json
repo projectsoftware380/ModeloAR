@@ -1,0 +1,16 @@
+{
+  "database": {
+    "name": "trading_db",
+    "user": "postgres",
+    "password": "CHANGE_ME",
+    "host": "localhost",
+    "port": "5432"
+  },
+  "api": {
+    "key": "CHANGE_ME",
+    "base_url": "https://api.polygon.io/v2/aggs/ticker/{}/range/4/hour/{}/{}"
+  },
+  "symbols": ["C:USDCHF", "C:EURUSD", "C:GBPUSD", "C:USDJPY"],
+  "table_name": "precios_forex_4h",
+  "interval_hours": 4
+}
