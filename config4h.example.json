@@ -7,7 +7,7 @@
     "port": "5432"
   },
   "api": {
-    "key": "CHANGE_ME",
+    "key_env": "POLYGON_API_KEY",
     "base_url": "https://api.polygon.io/v2/aggs/ticker/{}/range/4/hour/{}/{}"
   },
   "symbols": ["C:USDCHF", "C:EURUSD", "C:GBPUSD", "C:USDJPY"],
